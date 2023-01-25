@@ -1,5 +1,3 @@
-
-
 const initialState = {
 
     isFetching: false,
@@ -15,7 +13,9 @@ const usersReducer = (state = initialState, action) => {
 
         case "USERS_FETCH_REQUEST": return { ...state, isFetching: true };
 
-        case "USERS_FETCH_SUCCESS": return { ...state, isFetching: false, users: action.payload };
+        case "USERS_FETCH_SUCCUSS": return { ...state, isFetching: false, users: action.payload };
+        
+             
 
         case "USERS_FETCH_FAILURE": return { ...state, isFetching: false, error: action.payload };
 

@@ -5,6 +5,6 @@ import usersReducer from './redux/users/userReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 
-const store= createStore(usersReducer,composeWithDevTools(applyMiddleware(logger, thunk)));
+const store= createStore(usersReducer,composeWithDevTools(applyMiddleware(thunk, logger)));
 
 export default store;

@@ -5,37 +5,29 @@ import { fetchUsers } from '../redux/userActions';
 function UsersContainer() {
 
 
+    useEffect(() => {
 
-    const usersData= useSelector((state)=> state.users);
+        dispatch(fetchUsers());
+
+        console.log("inside useEffect");
+    }, [])
+
+
+    const usersData = useSelector((state) => state.users);
 
     const dispatch = useDispatch();
-    console.log("hllo",usersData);
-    
-
-    useEffect(()=>{
-
-        dispatch(fetchUsers())
-    },[])
-
-   
-
+    console.log("usersData", usersData);
 
     return (
         <div>
 
-   
-    
-     <h1>List of Users</h1>
-     
-     {usersData.isFetching && <h2>loading</h2>}
+            <h1>List of Users</h1>
 
-     {
-        usersData && usersData.map((user)=>{ return <h3>user.name</h3>})
-     }
+            {usersData.isFetching && <h2>loading</h2>}
 
-
-
-
+            {
+                usersData && usersData.map((user) => { return <h3 key={user.id}>{user.name}</h3> })
+            }
 
         </div>
     )
